@@ -15,7 +15,7 @@ export default function App() {
       .then((rta) => rta.json())
       .then((recurso) => {
         if (recurso.main !== undefined) {
-          console.log(recurso);
+          // console.log(recurso);
           const ciudad = {
             min: Math.round(recurso.main.temp_min),
             max: Math.round(recurso.main.temp_max),
