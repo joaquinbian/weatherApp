@@ -4,7 +4,7 @@ import Nav from "./components/Nav";
 import Cards from "./components/Cards";
 import About from "./components/About";
 import Ciudad from "./components/Ciudad";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 export default function App() {
   const [cities, setCities] = useState([]);
@@ -65,23 +65,25 @@ export default function App() {
   }
   return (
     <div className="App">
-      {/* {console.log(cities)}
+      <Route path="/" render={() => <Nav onSearch={onSearch} />} />
+      <Switch>
+        {/* {console.log(cities)}
       <Nav onSearch={onSearch}/>
       <Cards cities={cities} onClose={onClose}/> */}
-      <Route path="/" render={() => <Nav onSearch={onSearch} />}></Route>
-      <Route
-        exact
-        path="/"
-        render={() => <Cards cities={cities} onClose={onClose} />}
-      ></Route>
-      <Route exact path="/about" render={About}></Route>
-      <Route
-        exact
-        path="/ciudad/:ciudadId"
-        render={({ match }) => (
-          <Ciudad city={onFilter(match.params.ciudadId)} />
-        )}
-      ></Route>
+        <Route
+          exact
+          path="/"
+          render={() => <Cards cities={cities} onClose={onClose} />}
+        />
+        <Route exact path="/about" render={About}></Route>
+        <Route
+          exact
+          path="/ciudad/:ciudadId"
+          render={({ match }) => (
+            <Ciudad city={onFilter(match.params.ciudadId)} />
+          )}
+        />
+      </Switch>
     </div>
   );
 }
