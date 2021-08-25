@@ -1,0 +1,16 @@
+html {
+  height: 100vh;
+}
+body {
+  background-image: linear-gradient(#489ab1, #e6f5f9);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.App {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
