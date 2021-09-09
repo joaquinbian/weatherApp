@@ -5,9 +5,14 @@ import Cards from "./components/Cards";
 import About from "./components/About";
 import Ciudad from "./components/Ciudad";
 import { Route, Switch } from "react-router-dom";
+import { useLocation } from "react-router";
 
 export default function App() {
   const [cities, setCities] = useState([]);
+  console.log(useLocation()); //devuelve un objeto en el que esta el pathname, tambien search
+  //que search es una prop que tiene todo lo que esta en las querys string
+
+  console.log(useLocation().search.substr(6));
   function onSearch(ciudad) {
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=4ae2636d8dfbdc3044bede63951a019b&units=metric`
